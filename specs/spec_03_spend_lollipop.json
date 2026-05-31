@@ -1,72 +1,43 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Bar chart showing tourism spending by traveller type with a spending-growth slider.",
-  "width": "container",
-  "height": 300,
-  "background": "transparent",
+  "description": "Simple bar chart showing tourism spending by traveller type.",
+  "width": 520,
+  "height": 260,
   "data": {
     "values": [
-      {"traveller_type": "All travellers", "trips_million": 399.3, "spend_aud_billion": 192.4, "trips_yoy_percent": 6.0, "spend_yoy_percent": 7.0},
-      {"traveller_type": "Domestic overnight", "trips_million": 113.0, "spend_aud_billion": 106.7, "trips_yoy_percent": 0.2, "spend_yoy_percent": -1.9},
-      {"traveller_type": "Domestic day", "trips_million": 277.4, "spend_aud_billion": 46.4, "trips_yoy_percent": 9.0, "spend_yoy_percent": 19.0},
-      {"traveller_type": "International", "trips_million": 8.9, "spend_aud_billion": 39.2, "trips_yoy_percent": 8.0, "spend_yoy_percent": 19.0}
+      {"traveller_type": "All travellers", "spend_aud_billion": 192.4, "spending_growth_percent": 7.0},
+      {"traveller_type": "Domestic overnight", "spend_aud_billion": 106.7, "spending_growth_percent": -1.9},
+      {"traveller_type": "Domestic day", "spend_aud_billion": 46.4, "spending_growth_percent": 19.0},
+      {"traveller_type": "International", "spend_aud_billion": 39.2, "spending_growth_percent": 19.0}
     ]
   },
-  "params": [
-    {
-      "name": "min_growth",
-      "value": -5,
-      "bind": {
-        "input": "range",
-        "min": -5,
-        "max": 20,
-        "step": 1,
-        "name": "Minimum spending growth (%) "
-      }
-    }
-  ],
-  "transform": [
-    {"filter": "datum.spend_yoy_percent >= min_growth"}
-  ],
-  "layer": [
-    {
-      "mark": {"type": "bar", "cornerRadiusEnd": 6, "color": "#bd6735"},
-      "encoding": {
-        "y": {
-          "field": "traveller_type",
-          "type": "nominal",
-          "title": null,
-          "sort": {"field": "spend_aud_billion", "order": "descending"}
-        },
-        "x": {
-          "field": "spend_aud_billion",
-          "type": "quantitative",
-          "title": "Spend (AUD billion)"
-        },
-        "tooltip": [
-          {"field": "traveller_type", "title": "Traveller type"},
-          {"field": "spend_aud_billion", "title": "Spend (AUD billion)", "format": ".1f"},
-          {"field": "spend_yoy_percent", "title": "Spending growth (%)", "format": ".1f"},
-          {"field": "trips_million", "title": "Trips (million)", "format": ".1f"}
-        ]
-      }
+  "mark": {"type": "bar", "cornerRadiusEnd": 5},
+  "encoding": {
+    "y": {
+      "field": "traveller_type",
+      "type": "nominal",
+      "title": null,
+      "sort": "-x"
     },
-    {
-      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 6, "fontWeight": "bold", "color": "#3f2d25"},
-      "encoding": {
-        "y": {
-          "field": "traveller_type",
-          "type": "nominal",
-          "sort": {"field": "spend_aud_billion", "order": "descending"}
-        },
-        "x": {"field": "spend_aud_billion", "type": "quantitative"},
-        "text": {"field": "spend_aud_billion", "type": "quantitative", "format": ".1f"}
-      }
-    }
-  ],
+    "x": {
+      "field": "spend_aud_billion",
+      "type": "quantitative",
+      "title": "Spend (AUD billion)"
+    },
+    "color": {
+      "field": "spending_growth_percent",
+      "type": "quantitative",
+      "title": "Growth (%)"
+    },
+    "tooltip": [
+      {"field": "traveller_type", "type": "nominal", "title": "Traveller type"},
+      {"field": "spend_aud_billion", "type": "quantitative", "title": "Spend (AUD billion)", "format": ".1f"},
+      {"field": "spending_growth_percent", "type": "quantitative", "title": "Spending growth (%)", "format": ".1f"}
+    ]
+  },
   "config": {
     "view": {"stroke": null},
     "axis": {"labelFontSize": 12, "titleFontSize": 12},
-    "text": {"fontSize": 12}
+    "legend": {"labelFontSize": 11, "titleFontSize": 11}
   }
 }
