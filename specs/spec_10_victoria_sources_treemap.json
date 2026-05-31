@@ -1,0 +1,17 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A compact stacked bar showing the mix of Victoria's top source countries in March 2026.",
+  "width": "container",
+  "height": 160,
+  "background": "transparent",
+  "data": {"url": "data/vic_sources_mar.csv"},
+  "mark": {"type": "bar", "height": 60, "cornerRadius": 4},
+  "encoding": {
+    "x": {"aggregate": "sum", "field": "visitors", "type": "quantitative", "title": "Visitors to Victoria, March 2026"},
+    "y": {"value": 80},
+    "color": {"field": "country", "type": "nominal", "title": "Source country", "scale": {"scheme": "tableau20"}},
+    "order": {"field": "visitors", "type": "quantitative", "sort": "descending"},
+    "tooltip": [{"field": "country"}, {"field": "visitors", "title": "Visitors"}]
+  },
+  "config": {"view": {"stroke": null}, "legend": {"orient": "bottom", "columns": 5}}
+}

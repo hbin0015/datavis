@@ -1,0 +1,16 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Geographic bubble map showing major airport gateways.",
+  "width": "container",
+  "height": 440,
+  "background": "transparent",
+  "projection": {"type": "mercator", "center": [134, -26], "scale": 650},
+  "params": [{"name": "minPassengers", "value": 0, "bind": {"input": "range", "min": 0, "max": 45, "step": 5, "name": "Hide airports below passengers (m) "}}],
+  "layer": [
+    {"data": {"sphere": true}, "mark": {"type": "geoshape", "fill": "#fff6e6", "stroke": "#d7c19f"}},
+    {"data": {"graticule": {"step": [10, 10]}}, "mark": {"type": "geoshape", "stroke": "#ead8bb", "strokeWidth": 0.6}},
+    {"data": {"url": "data/airports.csv"}, "transform": [{"filter": "datum.total_passengers_million >= minPassengers"}], "mark": {"type": "circle", "opacity": 0.78, "stroke": "white", "strokeWidth": 1.5, "color": "#244c63"}, "encoding": {"longitude": {"field": "longitude", "type": "quantitative"}, "latitude": {"field": "latitude", "type": "quantitative"}, "size": {"field": "total_passengers_million", "type": "quantitative", "title": "Passengers (m)", "scale": {"range": [160, 2600]}}, "tooltip": [{"field": "airport"}, {"field": "city"}, {"field": "total_passengers_million", "title": "Passengers (m)"}, {"field": "domestic_million", "title": "Domestic (m)"}, {"field": "international_million", "title": "International (m)"}]}},
+    {"data": {"url": "data/airports.csv"}, "transform": [{"filter": "datum.total_passengers_million >= minPassengers"}], "mark": {"type": "text", "dy": -18, "fontSize": 11, "fontWeight": "bold", "color": "#20242b"}, "encoding": {"longitude": {"field": "longitude", "type": "quantitative"}, "latitude": {"field": "latitude", "type": "quantitative"}, "text": {"field": "iata"}}}
+  ],
+  "config": {"view": {"stroke": null}, "legend": {"orient": "bottom"}}
+}

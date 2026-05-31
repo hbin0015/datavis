@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Dot plot showing how close each source country is to its March 2019 visitor level.",
+  "width": "container",
+  "height": 330,
+  "background": "transparent",
+  "data": {"url": "data/source_countries_mar.csv"},
+  "transform": [
+    {"pivot": "year", "value": "visitors", "groupby": ["country"]},
+    {"calculate": "datum['2026'] / datum['2019'] * 100", "as": "recovery_percent"}
+  ],
+  "params": [
+    {"name": "onlyRecovered", "value": false, "bind": {"input": "checkbox", "name": "Only show countries at/above 2019 "}}
+  ],
+  "transform": [
+    {"pivot": "year", "value": "visitors", "groupby": ["country"]},
+    {"calculate": "datum['2026'] / datum['2019'] * 100", "as": "recovery_percent"},
+    {"filter": "!onlyRecovered || datum.recovery_percent >= 100"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "rule", "strokeDash": [5, 5], "color": "#9ca3af"},
+      "encoding": {"x": {"datum": 100, "type": "quantitative"}}
+    },
+    {
+      "mark": {"type": "circle", "size": 190, "opacity": 0.9, "color": "#bd6735", "stroke": "white", "strokeWidth": 1.2},
+      "encoding": {
+        "y": {"field": "country", "type": "nominal", "sort": "-x", "title": null},
+        "x": {"field": "recovery_percent", "type": "quantitative", "title": "March 2026 as % of March 2019"},
+        "tooltip": [
+          {"field": "country"},
+          {"field": "2019", "title": "March 2019 visitors"},
+          {"field": "2026", "title": "March 2026 visitors"},
+          {"field": "recovery_percent", "title": "% of 2019", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "data": {"values": [{"x": 100, "y": "United Kingdom", "label": "2019 level"}]},
+      "mark": {"type": "text", "align": "left", "dx": 7, "dy": -8, "fontWeight": "bold", "color": "#555f6d"},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "nominal"},
+        "text": {"field": "label"}
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null}}
+}

@@ -1,0 +1,150 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Grouped dot chart comparing domestic and international passenger volumes by airport.",
+  "width": "container",
+  "height": 330,
+  "background": "transparent",
+  "data": {
+    "values": [
+      {
+        "airport": "Sydney Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 25.094541
+      },
+      {
+        "airport": "Sydney Airport",
+        "passenger_type": "International",
+        "passengers_million": 16.751321
+      },
+      {
+        "airport": "Melbourne Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 23.998868
+      },
+      {
+        "airport": "Melbourne Airport",
+        "passenger_type": "International",
+        "passengers_million": 11.963866
+      },
+      {
+        "airport": "Brisbane Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 17.32263
+      },
+      {
+        "airport": "Brisbane Airport",
+        "passenger_type": "International",
+        "passengers_million": 6.504061
+      },
+      {
+        "airport": "Perth Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 9.070312
+      },
+      {
+        "airport": "Perth Airport",
+        "passenger_type": "International",
+        "passengers_million": 5.13019
+      },
+      {
+        "airport": "Adelaide Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 7.384087
+      },
+      {
+        "airport": "Adelaide Airport",
+        "passenger_type": "International",
+        "passengers_million": 1.02969
+      },
+      {
+        "airport": "Gold Coast Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 5.73401
+      },
+      {
+        "airport": "Gold Coast Airport",
+        "passenger_type": "International",
+        "passengers_million": 0.62427
+      },
+      {
+        "airport": "Cairns Airport",
+        "passenger_type": "Domestic",
+        "passengers_million": 4.042523
+      },
+      {
+        "airport": "Cairns Airport",
+        "passenger_type": "International",
+        "passengers_million": 0.664953
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "passengerPick",
+      "select": {
+        "type": "point",
+        "fields": [
+          "passenger_type"
+        ]
+      },
+      "bind": "legend"
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "size": 150,
+    "opacity": 0.9
+  },
+  "encoding": {
+    "y": {
+      "field": "airport",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null
+    },
+    "x": {
+      "field": "passengers_million",
+      "type": "quantitative",
+      "title": "Passengers (million)"
+    },
+    "color": {
+      "field": "passenger_type",
+      "type": "nominal",
+      "title": "Click legend",
+      "scale": {
+        "range": [
+          "#244c63",
+          "#bd6735"
+        ]
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "passengerPick",
+        "value": 0.9
+      },
+      "value": 0.18
+    },
+    "tooltip": [
+      {
+        "field": "airport"
+      },
+      {
+        "field": "passenger_type"
+      },
+      {
+        "field": "passengers_million",
+        "title": "Passengers (m)",
+        "format": ".1f"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "orient": "bottom"
+    }
+  }
+}

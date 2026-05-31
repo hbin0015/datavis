@@ -1,0 +1,350 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Line chart showing visitor arrival recovery compared with 2019 baseline.",
+  "width": "container",
+  "height": 320,
+  "background": "transparent",
+  "data": {
+    "values": [
+      {
+        "month": "Jan 2022",
+        "recovery_percent": 8.3,
+        "baseline_2019": 100.0,
+        "date": "2022-01-01"
+      },
+      {
+        "month": "Feb 2022",
+        "recovery_percent": 9.8,
+        "baseline_2019": 100.0,
+        "date": "2022-02-01"
+      },
+      {
+        "month": "Mar 2022",
+        "recovery_percent": 20.4,
+        "baseline_2019": 100.0,
+        "date": "2022-03-01"
+      },
+      {
+        "month": "Apr 2022",
+        "recovery_percent": 33.6,
+        "baseline_2019": 100.0,
+        "date": "2022-04-01"
+      },
+      {
+        "month": "May 2022",
+        "recovery_percent": 34.6,
+        "baseline_2019": 100.0,
+        "date": "2022-05-01"
+      },
+      {
+        "month": "Jun 2022",
+        "recovery_percent": 41.7,
+        "baseline_2019": 100.0,
+        "date": "2022-06-01"
+      },
+      {
+        "month": "Jul 2022",
+        "recovery_percent": 41.2,
+        "baseline_2019": 100.0,
+        "date": "2022-07-01"
+      },
+      {
+        "month": "Aug 2022",
+        "recovery_percent": 44.2,
+        "baseline_2019": 100.0,
+        "date": "2022-08-01"
+      },
+      {
+        "month": "Sep 2022",
+        "recovery_percent": 53.5,
+        "baseline_2019": 100.0,
+        "date": "2022-09-01"
+      },
+      {
+        "month": "Oct 2022",
+        "recovery_percent": 55.6,
+        "baseline_2019": 100.0,
+        "date": "2022-10-01"
+      },
+      {
+        "month": "Nov 2022",
+        "recovery_percent": 61.9,
+        "baseline_2019": 100.0,
+        "date": "2022-11-01"
+      },
+      {
+        "month": "Dec 2022",
+        "recovery_percent": 60.2,
+        "baseline_2019": 100.0,
+        "date": "2022-12-01"
+      },
+      {
+        "month": "Jan 2023",
+        "recovery_percent": 56.4,
+        "baseline_2019": 100.0,
+        "date": "2023-01-01"
+      },
+      {
+        "month": "Feb 2023",
+        "recovery_percent": 64.8,
+        "baseline_2019": 100.0,
+        "date": "2023-02-01"
+      },
+      {
+        "month": "Mar 2023",
+        "recovery_percent": 73.3,
+        "baseline_2019": 100.0,
+        "date": "2023-03-01"
+      },
+      {
+        "month": "Apr 2023",
+        "recovery_percent": 77.8,
+        "baseline_2019": 100.0,
+        "date": "2023-04-01"
+      },
+      {
+        "month": "May 2023",
+        "recovery_percent": 76.7,
+        "baseline_2019": 100.0,
+        "date": "2023-05-01"
+      },
+      {
+        "month": "Jun 2023",
+        "recovery_percent": 82.1,
+        "baseline_2019": 100.0,
+        "date": "2023-06-01"
+      },
+      {
+        "month": "Jul 2023",
+        "recovery_percent": 79.1,
+        "baseline_2019": 100.0,
+        "date": "2023-07-01"
+      },
+      {
+        "month": "Aug 2023",
+        "recovery_percent": 76.5,
+        "baseline_2019": 100.0,
+        "date": "2023-08-01"
+      },
+      {
+        "month": "Sep 2023",
+        "recovery_percent": 84.1,
+        "baseline_2019": 100.0,
+        "date": "2023-09-01"
+      },
+      {
+        "month": "Oct 2023",
+        "recovery_percent": 78.5,
+        "baseline_2019": 100.0,
+        "date": "2023-10-01"
+      },
+      {
+        "month": "Nov 2023",
+        "recovery_percent": 81.4,
+        "baseline_2019": 100.0,
+        "date": "2023-11-01"
+      },
+      {
+        "month": "Dec 2023",
+        "recovery_percent": 81.4,
+        "baseline_2019": 100.0,
+        "date": "2023-12-01"
+      },
+      {
+        "month": "Jan 2024",
+        "recovery_percent": 82.6,
+        "baseline_2019": 100.0,
+        "date": "2024-01-01"
+      },
+      {
+        "month": "Feb 2024",
+        "recovery_percent": 92.5,
+        "baseline_2019": 100.0,
+        "date": "2024-02-01"
+      },
+      {
+        "month": "Mar 2024",
+        "recovery_percent": 91.0,
+        "baseline_2019": 100.0,
+        "date": "2024-03-01"
+      },
+      {
+        "month": "Apr 2024",
+        "recovery_percent": 84.7,
+        "baseline_2019": 100.0,
+        "date": "2024-04-01"
+      },
+      {
+        "month": "May 2024",
+        "recovery_percent": 89.9,
+        "baseline_2019": 100.0,
+        "date": "2024-05-01"
+      },
+      {
+        "month": "Jun 2024",
+        "recovery_percent": 89.0,
+        "baseline_2019": 100.0,
+        "date": "2024-06-01"
+      },
+      {
+        "month": "Jul 2024",
+        "recovery_percent": 83.4,
+        "baseline_2019": 100.0,
+        "date": "2024-07-01"
+      },
+      {
+        "month": "Aug 2024",
+        "recovery_percent": 83.5,
+        "baseline_2019": 100.0,
+        "date": "2024-08-01"
+      },
+      {
+        "month": "Sep 2024",
+        "recovery_percent": 90.8,
+        "baseline_2019": 100.0,
+        "date": "2024-09-01"
+      },
+      {
+        "month": "Oct 2024",
+        "recovery_percent": 87.5,
+        "baseline_2019": 100.0,
+        "date": "2024-10-01"
+      },
+      {
+        "month": "Nov 2024",
+        "recovery_percent": 85.2,
+        "baseline_2019": 100.0,
+        "date": "2024-11-01"
+      },
+      {
+        "month": "Dec 2024",
+        "recovery_percent": 87.7,
+        "baseline_2019": 100.0,
+        "date": "2024-12-01"
+      },
+      {
+        "month": "Jan 2025",
+        "recovery_percent": 97.1,
+        "baseline_2019": 100.0,
+        "date": "2025-01-01"
+      },
+      {
+        "month": "Feb 2025",
+        "recovery_percent": 85.0,
+        "baseline_2019": 100.0,
+        "date": "2025-02-01"
+      },
+      {
+        "month": "Mar 2025",
+        "recovery_percent": 91.0,
+        "baseline_2019": 100.0,
+        "date": "2025-03-01"
+      },
+      {
+        "month": "Apr 2025",
+        "recovery_percent": 91.5,
+        "baseline_2019": 100.0,
+        "date": "2025-04-01"
+      },
+      {
+        "month": "May 2025",
+        "recovery_percent": 91.5,
+        "baseline_2019": 100.0,
+        "date": "2025-05-01"
+      },
+      {
+        "month": "Jun 2025",
+        "recovery_percent": 94.6,
+        "baseline_2019": 100.0,
+        "date": "2025-06-01"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeDash": [
+          6,
+          5
+        ],
+        "stroke": "#9ca3af"
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "title": null
+        },
+        "y": {
+          "field": "baseline_2019",
+          "type": "quantitative",
+          "title": "% of 2019 visitor level"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "color": "#bd6735"
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "title": null
+        },
+        "y": {
+          "field": "recovery_percent",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "month",
+            "title": "Month"
+          },
+          {
+            "field": "recovery_percent",
+            "title": "Recovery (%)"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "date": "2025-06-01",
+            "label": "Still below 2019, but much closer"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "fontWeight": "bold",
+        "color": "#7c3f2b",
+        "dy": -8
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal"
+        },
+        "y": {
+          "datum": 94.6,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

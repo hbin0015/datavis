@@ -1,0 +1,18 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Grouped bar chart of top source countries for March visitor arrivals.",
+  "width": "container",
+  "height": 360,
+  "background": "transparent",
+  "data": {"url": "data/source_countries_mar.csv"},
+  "transform": [{"filter": "datum.year == 2019 || datum.year == 2026"}],
+  "mark": {"type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
+  "encoding": {
+    "x": {"field": "country", "type": "nominal", "sort": "-y", "title": null, "axis": {"labelAngle": -25}},
+    "xOffset": {"field": "year"},
+    "y": {"field": "visitors", "type": "quantitative", "title": "Short-term visitors (March)"},
+    "color": {"field": "year", "type": "nominal", "title": "Year", "scale": {"range": ["#9ca3af", "#bd6735"]}},
+    "tooltip": [{"field": "country"}, {"field": "year"}, {"field": "visitors", "title": "Visitors"}]
+  },
+  "config": {"view": {"stroke": null}, "legend": {"orient": "bottom"}}
+}

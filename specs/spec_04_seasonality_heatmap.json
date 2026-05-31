@@ -1,0 +1,18 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap of monthly short-term visitors.",
+  "width": "container",
+  "height": 240,
+  "background": "transparent",
+  "data": {"url": "data/monthly_visitors.csv"},
+  "params": [{"name": "yr", "value": 2025, "bind": {"input": "select", "options": [2024, 2025, 2026], "name": "Choose year "}}],
+  "transform": [{"filter": "datum.year == yr"}],
+  "mark": {"type": "rect", "cornerRadius": 4},
+  "encoding": {
+    "x": {"field": "month", "type": "ordinal", "sort": ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"], "title": "Month"},
+    "y": {"field": "year", "type": "ordinal", "title": null},
+    "color": {"field": "visitors_000", "type": "quantitative", "title": "Visitors ('000)", "scale": {"scheme": "oranges"}},
+    "tooltip": [{"field": "month"}, {"field": "year"}, {"field": "visitors_000", "title": "Visitors ('000)"}]
+  },
+  "config": {"view": {"stroke": null}, "legend": {"orient": "bottom"}}
+}

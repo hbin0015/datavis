@@ -1,0 +1,17 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bar chart showing March 2026 visitor arrivals by intended state or territory of stay.",
+  "width": "container",
+  "height": 310,
+  "background": "transparent",
+  "data": {"url": "data/state_stay_mar2026.csv"},
+  "params": [{"name": "growthOnly", "value": false, "bind": {"input": "checkbox", "name": "Show change % instead of arrivals "}}],
+  "transform": [{"calculate": "growthOnly ? datum.change_percent : datum.mar_2026", "as": "shown_value"}],
+  "mark": {"type": "bar", "cornerRadiusEnd": 5, "color": "#244c63"},
+  "encoding": {
+    "y": {"field": "state", "type": "nominal", "sort": "-x", "title": null},
+    "x": {"field": "shown_value", "type": "quantitative", "title": "Visitors, or change % when box is ticked"},
+    "tooltip": [{"field": "state"}, {"field": "mar_2026", "title": "Mar 2026 visitors"}, {"field": "change_percent", "title": "Change from Mar 2025 (%)"}]
+  },
+  "config": {"view": {"stroke": null}}
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Australia's Tourism Comeback</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main>
+  <header class="hero">
+    <div>
+      <div class="kicker">FIT2179 Data Visualisation 2</div>
+      <h1>Australia's Tourism Comeback</h1>
+      <p class="sub">Australia's visitor economy is moving again, but it has not come back in one neat way. This page follows the recovery after border closures, then looks at airports, seasons, spending, and the countries visitors are coming from.</p>
+    </div>
+    <aside class="stat-card">
+      <div class="big-number">12</div>
+      <strong>Vega-Lite visualisations</strong>
+      <p class="note">Includes a geographic airport map, filters, annotations, and a mix of simple and less-basic idioms.</p>
+    </aside>
+  </header>
+
+  <section class="story-section">
+    <div class="section-title"><span>1</span><h2>The return was slow, then suddenly normal again</h2></div>
+    <p class="note">The first view sets up the main story: tourism did not bounce back in one clean line. It climbed slowly, with seasonal jumps and dips, before getting close to the 2019 level.</p>
+    <div class="chart-block">
+      <h3>Visitor arrivals compared with the 2019 level</h3>
+      <p>The dashed line marks the pre-pandemic benchmark. The orange line shows how far the recovery had reached.</p>
+      <div id="vis1" class="chart"></div>
+    </div>
+    <div class="chart-block">
+      <h3>Arrivals and departures moved together again</h3>
+      <p>Outbound travel also recovered strongly, so the tourism comeback is not only about people entering Australia, but also Australians travelling again.</p>
+      <div id="vis2" class="chart"></div>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <div class="section-title"><span>2</span><h2>Recovery does not mean every traveller group behaves the same</h2></div>
+    <p class="note">Domestic overnight trips bring the largest spend, while international travellers are smaller in trip count but still important because of how much money they bring into Australia.</p>
+    <div class="grid-two">
+      <div class="chart-block">
+        <h3>Spend by traveller type</h3>
+        <p>Use the slider to hide lower-growth categories and focus on stronger spending growth.</p>
+        <div id="vis3" class="chart"></div>
+      </div>
+      <div class="chart-block">
+        <h3>Trips compared with spending</h3>
+        <p>This shows that more trips does not always mean proportionally more spend.</p>
+        <div id="vis7" class="chart"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <div class="section-title"><span>3</span><h2>Seasonality still shapes tourism</h2></div>
+    <p class="note">The heatmap makes the seasonal pattern easier to see than a long table. Darker months show stronger visitor numbers.</p>
+    <div class="chart-block">
+      <h3>Monthly visitor seasonality</h3>
+      <p>Change the year to compare the most recent available months.</p>
+      <div id="vis4" class="chart"></div>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <div class="section-title"><span>4</span><h2>The comeback is concentrated through big gateways</h2></div>
+    <p class="note">Most international movement happens through a small number of airport gateways. The map is not just decoration: it shows the spatial concentration of Australia's tourism entry points.</p>
+    <div class="chart-block">
+      <h3>Major airport gateways</h3>
+      <p>Bubble size represents total passengers. The slider can hide smaller airports to reduce clutter.</p>
+      <div id="vis5" class="chart mapchart"></div>
+    </div>
+    <div class="chart-block">
+      <h3>Domestic and international airport traffic</h3>
+      <p>This range-dot chart compares the domestic and international mix for each airport.</p>
+      <div id="vis6" class="chart"></div>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <div class="section-title"><span>5</span><h2>Source markets are changing, not just recovering</h2></div>
+    <p class="note">The final section shifts from overall recovery to the people behind it. Some markets are near or above 2019, while others are still rebuilding.</p>
+    <div class="grid-two">
+      <div class="chart-block">
+        <h3>Top source countries, March 2019 vs March 2026</h3>
+        <p>Grouped bars make the before-and-after change easy for a general Australian audience to read.</p>
+        <div id="vis8" class="chart"></div>
+      </div>
+      <div class="chart-block">
+        <h3>Where visitors planned to stay</h3>
+        <p>Tick the box to switch from raw arrivals to year-on-year growth.</p>
+        <div id="vis9" class="chart"></div>
+      </div>
+    </div>
+    <div class="chart-block">
+      <h3>Victoria's visitor mix</h3>
+      <p>Because this assignment is made from Victoria, this compact stacked bar gives the local view of source countries.</p>
+      <div id="vis10" class="chart smallchart"></div>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <div class="section-title"><span>6</span><h2>So, is tourism actually “back”?</h2></div>
+    <p class="note">The last two charts are here to make the ending less vague. Some source countries are already above their 2019 level, but the state-level picture is still uneven.</p>
+    <div class="grid-two">
+      <div class="chart-block">
+        <h3>Which source countries recovered the most?</h3>
+        <p>The dotted line is the old 2019 level. Anything to the right has passed it.</p>
+        <div id="vis11" class="chart"></div>
+      </div>
+      <div class="chart-block">
+        <h3>State stays: March 2019 vs March 2026</h3>
+        <p>This slope chart compares where visitors planned to stay before and after the recovery.</p>
+        <div id="vis12" class="chart"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <strong>Author:</strong> Muhammad Haziq · <strong>Date:</strong> May 2026<br>
+    <strong>Data sources:</strong> Australian Bureau of Statistics, Tourism Research Australia, Bureau of Infrastructure and Transport Research Economics. Data has been reduced and reshaped so the page loads quickly. Generative AI was used to help draft text, structure the webpage, and refine Vega-Lite code; the final topic, editing, checks and submission decisions are my own.
+  </footer>
+</main>
+<script src="js_main.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Slope chart comparing intended state or territory of stay in March 2019 and March 2026.",
+  "width": "container",
+  "height": 360,
+  "background": "transparent",
+  "data": {"url": "data/state_stay_mar2026.csv"},
+  "transform": [
+    {"fold": ["mar_2019", "mar_2026"], "as": ["year_key", "visitors"]},
+    {"calculate": "datum.year_key == 'mar_2019' ? '2019' : '2026'", "as": "year"}
+  ],
+  "params": [
+    {"name": "statePick", "select": {"type": "point", "fields": ["state"]}, "bind": "legend"}
+  ],
+  "mark": {"type": "line", "point": {"size": 105, "filled": true}, "strokeWidth": 2.5},
+  "encoding": {
+    "x": {"field": "year", "type": "ordinal", "title": "March comparison"},
+    "y": {"field": "visitors", "type": "quantitative", "title": "Visitors by intended stay"},
+    "color": {"field": "state", "type": "nominal", "title": "Click state", "scale": {"scheme": "tableau20"}},
+    "opacity": {"condition": {"param": "statePick", "value": 0.95}, "value": 0.2},
+    "tooltip": [
+      {"field": "state"},
+      {"field": "year"},
+      {"field": "visitors", "title": "Visitors"},
+      {"field": "change_percent", "title": "Change from Mar 2025 (%)"}
+    ]
+  },
+  "config": {"view": {"stroke": null}, "legend": {"orient": "bottom", "columns": 5}}
+}

@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Lollipop chart showing spending by traveller type.",
+  "width": "container",
+  "height": 300,
+  "background": "transparent",
+  "data": {
+    "values": [
+      {
+        "traveller_type": "Domestic overnight",
+        "trips_million": 113.0,
+        "spend_aud_billion": 106.7,
+        "trips_yoy_percent": 0.2,
+        "spend_yoy_percent": -1.9
+      },
+      {
+        "traveller_type": "Domestic day",
+        "trips_million": 277.4,
+        "spend_aud_billion": 46.4,
+        "trips_yoy_percent": 9.0,
+        "spend_yoy_percent": 19.0
+      },
+      {
+        "traveller_type": "International",
+        "trips_million": 8.9,
+        "spend_aud_billion": 39.2,
+        "trips_yoy_percent": 8.0,
+        "spend_yoy_percent": 19.0
+      },
+      {
+        "traveller_type": "All travellers",
+        "trips_million": 399.3,
+        "spend_aud_billion": 192.4,
+        "trips_yoy_percent": 6.0,
+        "spend_yoy_percent": 7.0
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 3,
+        "opacity": 0.35,
+        "color": "#244c63"
+      },
+      "encoding": {
+        "y": {
+          "field": "traveller_type",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null
+        },
+        "x": {
+          "datum": 0,
+          "type": "quantitative",
+          "title": "Spend (AUD billion)"
+        },
+        "x2": {
+          "field": "spend_aud_billion"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 260,
+        "opacity": 0.9,
+        "color": "#bd6735"
+      },
+      "encoding": {
+        "y": {
+          "field": "traveller_type",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null
+        },
+        "x": {
+          "field": "spend_aud_billion",
+          "type": "quantitative",
+          "title": "Spend (AUD billion)"
+        },
+        "tooltip": [
+          {
+            "field": "traveller_type",
+            "title": "Traveller type"
+          },
+          {
+            "field": "spend_aud_billion",
+            "title": "Spend (AUD b)"
+          },
+          {
+            "field": "spend_yoy_percent",
+            "title": "Spend growth (%)"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 9,
+        "fontWeight": "bold",
+        "color": "#3f2d25"
+      },
+      "encoding": {
+        "y": {
+          "field": "traveller_type",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null
+        },
+        "x": {
+          "field": "spend_aud_billion",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "spend_aud_billion",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

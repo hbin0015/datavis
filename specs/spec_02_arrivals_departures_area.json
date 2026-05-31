@@ -1,0 +1,263 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Line and area chart comparing arrivals and departures over selected months.",
+  "width": "container",
+  "height": 320,
+  "background": "transparent",
+  "data": {
+    "values": [
+      {
+        "month": "Jan 2019",
+        "type": "Arrivals",
+        "millions": 2.22,
+        "date": "2019-01-01"
+      },
+      {
+        "month": "Jan 2019",
+        "type": "Departures",
+        "millions": 1.91,
+        "date": "2019-01-01"
+      },
+      {
+        "month": "Jul 2019",
+        "type": "Arrivals",
+        "millions": 2.01,
+        "date": "2019-07-01"
+      },
+      {
+        "month": "Jul 2019",
+        "type": "Departures",
+        "millions": 1.76,
+        "date": "2019-07-01"
+      },
+      {
+        "month": "Dec 2019",
+        "type": "Arrivals",
+        "millions": 1.89,
+        "date": "2019-12-01"
+      },
+      {
+        "month": "Dec 2019",
+        "type": "Departures",
+        "millions": 2.24,
+        "date": "2019-12-01"
+      },
+      {
+        "month": "Apr 2020",
+        "type": "Arrivals",
+        "millions": 0.02,
+        "date": "2020-04-01"
+      },
+      {
+        "month": "Apr 2020",
+        "type": "Departures",
+        "millions": 0.06,
+        "date": "2020-04-01"
+      },
+      {
+        "month": "Dec 2020",
+        "type": "Arrivals",
+        "millions": 0.03,
+        "date": "2020-12-01"
+      },
+      {
+        "month": "Dec 2020",
+        "type": "Departures",
+        "millions": 0.05,
+        "date": "2020-12-01"
+      },
+      {
+        "month": "Dec 2021",
+        "type": "Arrivals",
+        "millions": 0.2,
+        "date": "2021-12-01"
+      },
+      {
+        "month": "Dec 2021",
+        "type": "Departures",
+        "millions": 0.23,
+        "date": "2021-12-01"
+      },
+      {
+        "month": "Jun 2022",
+        "type": "Arrivals",
+        "millions": 0.73,
+        "date": "2022-06-01"
+      },
+      {
+        "month": "Jun 2022",
+        "type": "Departures",
+        "millions": 0.88,
+        "date": "2022-06-01"
+      },
+      {
+        "month": "Dec 2022",
+        "type": "Arrivals",
+        "millions": 1.26,
+        "date": "2022-12-01"
+      },
+      {
+        "month": "Dec 2022",
+        "type": "Departures",
+        "millions": 1.52,
+        "date": "2022-12-01"
+      },
+      {
+        "month": "Jun 2023",
+        "type": "Arrivals",
+        "millions": 1.36,
+        "date": "2023-06-01"
+      },
+      {
+        "month": "Jun 2023",
+        "type": "Departures",
+        "millions": 1.56,
+        "date": "2023-06-01"
+      },
+      {
+        "month": "Dec 2023",
+        "type": "Arrivals",
+        "millions": 1.7,
+        "date": "2023-12-01"
+      },
+      {
+        "month": "Dec 2023",
+        "type": "Departures",
+        "millions": 2.03,
+        "date": "2023-12-01"
+      },
+      {
+        "month": "Jun 2024",
+        "type": "Arrivals",
+        "millions": 1.53,
+        "date": "2024-06-01"
+      },
+      {
+        "month": "Jun 2024",
+        "type": "Departures",
+        "millions": 1.76,
+        "date": "2024-06-01"
+      },
+      {
+        "month": "Dec 2024",
+        "type": "Arrivals",
+        "millions": 1.85,
+        "date": "2024-12-01"
+      },
+      {
+        "month": "Dec 2024",
+        "type": "Departures",
+        "millions": 2.26,
+        "date": "2024-12-01"
+      },
+      {
+        "month": "Jun 2025",
+        "type": "Arrivals",
+        "millions": 1.62,
+        "date": "2025-06-01"
+      },
+      {
+        "month": "Jun 2025",
+        "type": "Departures",
+        "millions": 1.81,
+        "date": "2025-06-01"
+      },
+      {
+        "month": "Dec 2025",
+        "type": "Arrivals",
+        "millions": 2.0,
+        "date": "2025-12-01"
+      },
+      {
+        "month": "Dec 2025",
+        "type": "Departures",
+        "millions": 2.45,
+        "date": "2025-12-01"
+      },
+      {
+        "month": "Mar 2026",
+        "type": "Arrivals",
+        "millions": 1.83,
+        "date": "2026-03-01"
+      },
+      {
+        "month": "Mar 2026",
+        "type": "Departures",
+        "millions": 1.88,
+        "date": "2026-03-01"
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "pick",
+      "select": {
+        "type": "point",
+        "fields": [
+          "type"
+        ]
+      },
+      "bind": "legend"
+    }
+  ],
+  "mark": {
+    "type": "area",
+    "opacity": 0.55,
+    "line": {
+      "strokeWidth": 2
+    },
+    "point": {
+      "size": 55
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "title": null
+    },
+    "y": {
+      "field": "millions",
+      "type": "quantitative",
+      "title": "Border crossings (millions)"
+    },
+    "color": {
+      "field": "type",
+      "type": "nominal",
+      "title": "Click legend",
+      "scale": {
+        "range": [
+          "#244c63",
+          "#bd6735"
+        ]
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "pick",
+        "value": 0.78
+      },
+      "value": 0.18
+    },
+    "tooltip": [
+      {
+        "field": "month"
+      },
+      {
+        "field": "type"
+      },
+      {
+        "field": "millions",
+        "title": "Millions"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "orient": "bottom"
+    }
+  }
+}

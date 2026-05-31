@@ -1,0 +1,18 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bubble plot comparing trip volume and spend for traveller segments.",
+  "width": "container",
+  "height": 320,
+  "background": "transparent",
+  "data": {"url": "data/traveller_spend.csv"},
+  "params": [{"name": "travellerPick", "select": {"type": "point", "fields": ["traveller_type"]}, "bind": "legend"}],
+  "mark": {"type": "circle", "opacity": 0.84, "size": 520, "stroke": "white", "strokeWidth": 1.5},
+  "encoding": {
+    "x": {"field": "trips_million", "type": "quantitative", "title": "Trips (million)"},
+    "y": {"field": "spend_aud_billion", "type": "quantitative", "title": "Spend (AUD billion)"},
+    "color": {"field": "traveller_type", "type": "nominal", "title": "Click legend", "scale": {"range": ["#244c63", "#bd6735", "#7c3f2b", "#4f6f52"]}},
+    "opacity": {"condition": {"param": "travellerPick", "value": 0.9}, "value": 0.18},
+    "tooltip": [{"field": "traveller_type"}, {"field": "trips_million", "title": "Trips (m)"}, {"field": "spend_aud_billion", "title": "Spend (AUD b)"}]
+  },
+  "config": {"view": {"stroke": null}, "legend": {"orient": "bottom"}}
+}
